@@ -1,0 +1,50 @@
+name: Lint, build, and test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check formatting
+        run: >
+          cargo fmt
+          --all --check
+          --message-format human --verbose
+          --
+          --check --files-with-diff --verbose
+      - name: Lint
+        run: >
+          cargo clippy
+          --no-deps
+          --future-incompat-report
+          --workspace --all-targets --all-features
+          --keep-going --release
+          --message-format human --verbose
+      - name: Build
+        run: >
+          cargo build
+          --future-incompat-report
+          --workspace --all-targets --all-features
+          --keep-going --release
+          --message-format human --verbose
+      - name: Test
+        run: >
+          cargo test
+          --future-incompat-report
+          --workspace --all-targets --all-features
+          --no-fail-fast --release
+          --message-format human --verbose
+          --
+          --include-ignored --format pretty --show-output
