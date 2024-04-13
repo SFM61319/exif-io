@@ -39,5 +39,17 @@
   "userWords": [],
   "validateDirectives": true,
   "version": "0.2",
-  "words": []
+  "words": [
+    "CVD",
+    "fn",
+    "FOSS",
+    "IEC",
+    "io",
+    "msys",
+    "posix",
+    "tada",
+    "UI",
+    "WEBP",
+    "XY"
+  ]
 }
