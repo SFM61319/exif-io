@@ -2,6 +2,19 @@
 name = "exif-io"
 version = "0.1.0"
 edition = "2021"
+authors = ["Avinash Maddikonda <svasssakavi@gmail.com>"]
+categories = [
+    "data-structures",
+    "encoding",
+    "filesystem",
+    "multimedia::encoding",
+    "multimedia::images",
+]
+description = "A Rust library crate to read and write image EXIF data."
+homepage = "https://docs.rs/crate/exif-io"
+keywords = ["exif", "image", "metadata", "read", "write"]
+license = "MIT"
+repository = "https://github.com/SFM61319/exif-io"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
