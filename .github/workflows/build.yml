@@ -17,6 +17,17 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      - name: Generate lockfile
+        run: cargo generate-lockfile --verbose
+      - uses: actions/cache@v4
+        with:
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
       - name: Check formatting
         run: >
           cargo fmt
