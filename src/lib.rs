@@ -1,4 +1,4 @@
-//! Exif IO is a Rust library crate to read and write image EXIF data.
+//! Exif IO is a Rust library crate to read and write image Exif data.
 
-mod tag;
-pub use tag::Tag;
+pub mod tag;
+pub mod types;
